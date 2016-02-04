@@ -1130,8 +1130,8 @@ local function run(msg, matches)
         return "Only owner can clean"
       end
       if matches[2] == 'member' then
-        if not is_owner(msg) then
-          return "Only admins can clean members"
+        if not is_sudo(msg) then
+          return "Only sudo can clean members"
         end
         local receiver = get_receiver(msg)
         chat_info(receiver, cleanmember, {receiver=receiver})
